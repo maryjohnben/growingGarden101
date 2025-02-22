@@ -14,8 +14,9 @@ export default function NavBar() {
           <Navbar.Brand as={NavLink} to="/" style={{color: "green"}}>Grow Garden 101</Navbar.Brand>
           <Nav className="justify-content-center gap-5">
             <Nav.Link as={NavLink} to="/" style={{color: "black"}}>Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/easyPlants" style={{color: "black"}}>Easy Plants</Nav.Link>
+            <Nav.Link as={NavLink} to="/funFacts" style={{color: "black"}}>Fun Facts</Nav.Link>
             <Nav.Link as={NavLink} to="/about" style={{color: "black"}}>About</Nav.Link>
-            <Nav.Link as={NavLink} to="/list" style={{color: "black"}}>Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
