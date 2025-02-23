@@ -10,8 +10,14 @@ import'../src/index.css';
 export default function NavBar() {
   return (
       <Navbar bg="light" data-bs-theme="dark" fixed="top" expand="lg" className="navbar">
-        <Container className="d-flex flex-column">
-          <Navbar.Brand as={NavLink} to="/" style={{color: "green"}}>Grow Garden 101</Navbar.Brand>
+            <div className="d-flex justify-content-center justify-content-lg-start w-100">
+            <img src="../src/images/logo.jpeg" alt="Garden 101 Logo"
+                    className="logo"
+            style={{ width: '100px', height: 'auto'}}
+          />
+            </div>
+        <Container className="d-flex flex-column align-items-center">
+          <Navbar.Brand as={NavLink} to="/" style={{color: 'darkgreen'}}>Grow Garden 101</Navbar.Brand>
           <Nav className="justify-content-center gap-5">
             <Nav.Link as={NavLink} to="/" style={{color: "black"}}>Home</Nav.Link>
             <Nav.Link as={NavLink} to="/easyPlants" style={{color: "black"}}>Easy Plants</Nav.Link>

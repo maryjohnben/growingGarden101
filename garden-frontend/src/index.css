@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+    padding-top: 80px; /* Adjust as needed */
 }
 
 h1 {
@@ -69,4 +70,18 @@ button:focus-visible {
 .nav-link.active {
   color: darkgreen !important;
   background-color: darkseagreen;
+}
+
+.navbar-brand {
+  font-family: 'monospace', cursive;
+  font-weight: bold;
+  font-size: 2.1em !important;
+}
+@media (max-width: 576px) {
+  .logo {
+    width: 70px; /* Adjust the width for mobile screens */
+  }
+  body {
+    padding-top: 500px; /* Smaller navbar on mobile */
+  }
 }
