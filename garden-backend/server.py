@@ -1,6 +1,8 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from waitress import serve #similar to Express.js in node
 from config import Config
+from pymongo import MongoClient
+
 app = Flask(__name__) #makes a flask app
 app.config.from_object(Config)
 @app.route('/') # home page

@@ -1,0 +1,352 @@
+[
+    {
+        "Common Name": "Carrots",
+        "Scientific Name": "Daucus carota var. sativus",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Onions",
+        "Scientific Name": "Allium cepa",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Spinach",
+        "Scientific Name": "Spinacia oleracea",
+        "Watering": "2-3 times a week",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Beetroot",
+        "Scientific Name": "Beta vulgaris",
+        "Watering": "Once every 2 weeks",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Peas",
+        "Scientific Name": "Lathyrus oleraceus",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Garlic",
+        "Scientific Name": "Allium sativum",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Celery",
+        "Scientific Name": "Apium",
+        "Watering": "Every other day",
+        "Soil ph": "6.6 to 7.3",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Snap Beans",
+        "Scientific Name": "Phaseolus vulgaris",
+        "Watering": "Once weekly",
+        "Soil ph": "5.5 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Sweet Corn",
+        "Scientific Name": "Zea mays subsp. mays",
+        "Watering": "2-3 times a week",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Bush Beans",
+        "Scientific Name": "Phaseolus vulgaris",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Broccoli",
+        "Scientific Name": "Brassica oleracea",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Arugula",
+        "Scientific Name": "Eruca vesicaria",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Red Cabbage",
+        "Scientific Name": "Brassica oleracea\u00a0",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Endive",
+        "Scientific Name": "Cichorium endivia",
+        "Watering": "2-3 times a week",
+        "Soil ph": "5.8 to 6.0",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Mustard Greens",
+        "Scientific Name": "Brassica juncea",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Lima Beans",
+        "Scientific Name": "Phaseolus lunatus",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Bell Peppers",
+        "Scientific Name": "Capsicum",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Zucchini",
+        "Scientific Name": "Cucurbita pepo",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 7.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Green Onion",
+        "Scientific Name": "Allium fistulosum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Tomato",
+        "Scientific Name": "Solanum lycopersicum",
+        "Watering": "2-3 times a week",
+        "Soil ph": "6.2 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Gourd",
+        "Scientific Name": "Lagenaria siceraria",
+        "Watering": "2-3 times a week",
+        "Soil ph": "6.0 to 7.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Purple Sweet Potato",
+        "Scientific Name": "Primulina",
+        "Watering": "Once weekly",
+        "Soil ph": "5.8 to 6.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Bitter Melon",
+        "Scientific Name": "Momordica charantia",
+        "Watering": "Twice weekly",
+        "Soil ph": "5.5 to 6.7",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Watercress",
+        "Scientific Name": "Nasturtium officinale",
+        "Watering": "Change water twice",
+        "Soil ph": "6.5 to 7.5",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Mint",
+        "Scientific Name": "Mentha",
+        "Watering": "2-3 times a week",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Thyme",
+        "Scientific Name": "Thymus",
+        "Watering": "Once weekly",
+        "Soil ph": "7",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Rosemary",
+        "Scientific Name": "Salvia rosmarinusv",
+        "Watering": "Every 1-2 weeks",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Eggplant",
+        "Scientific Name": "Solanum melongena",
+        "Watering": "Twice weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Rhubarb",
+        "Scientific Name": "Rheum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Sweet Potato",
+        "Scientific Name": "Ipomoea batatas",
+        "Watering": "Once weekly",
+        "Soil ph": "5.8 to 6.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Cilantro",
+        "Scientific Name": "Coriandrum sativum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.2 to 6.8",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Snow Peas",
+        "Scientific Name": "Lathyrus oleraceus\u00a0",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 7.5",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Chives",
+        "Scientific Name": "Allium schoenoprasum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Green Beans",
+        "Scientific Name": "Phaseolus vulgaris",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.5",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Shitake Mushroom",
+        "Scientific Name": "Lentinula edodes",
+        "Watering": "Every 2 Weeks",
+        "Soil ph": "6.0  to 7.0",
+        "Sun": "Partial"
+    },
+    {
+        "Common Name": "Dandelion",
+        "Scientific Name": "Taraxacum officinale",
+        "Watering": "Once weekly",
+        "Soil ph": "6.5 to 6.8",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Cucumber",
+        "Scientific Name": "Cucumis sativus",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Lettuce",
+        "Scientific Name": "Lactuca sativa\u00a0",
+        "Watering": "3 to 4 times weekly",
+        "Soil ph": "6.0 to 6.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Fennel",
+        "Scientific Name": "Foeniculum vulgare",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "5.5 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Cherry Tomato",
+        "Scientific Name": "Solanum lycopersicum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Pumpkin",
+        "Scientific Name": "Cucurbita pepo",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Potato",
+        "Scientific Name": "Solanum tuberosum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "4.8 to 5.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Cowpea",
+        "Scientific Name": "Vigna unguiculata",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "5.5 to 6.5",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Parsnips",
+        "Scientific Name": "Pastinaca sativa",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Beets",
+        "Scientific Name": "Beta",
+        "Watering": "Every 1-2 weeks",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Pepper",
+        "Scientific Name": "Capsicum",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Squash",
+        "Scientific Name": "Cucurbita pepo",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "5.8 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Melon",
+        "Scientific Name": "Cucumis melo",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 6.8",
+        "Sun": "Full"
+    },
+    {
+        "Common Name": "Cabbage",
+        "Scientific Name": "Brassica oleracea var. capitata",
+        "Watering": "Once or twice Weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full to Partial"
+    },
+    {
+        "Common Name": "Radish",
+        "Scientific Name": "Raphanus sativus",
+        "Watering": "Once weekly",
+        "Soil ph": "6.0 to 7.0",
+        "Sun": "Full"
+    }
+]
