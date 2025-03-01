@@ -1,11 +1,25 @@
 import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import Grid from '@mui/material/Grid2';
 import TextField from "@mui/material/TextField";
 import {Box, Container, Typography} from "@mui/material";
 import homePageLogo from "../images/homePagePicture.jpeg"
-
+import PlantSearchForm from "./PlantSearchForm";
 
 export const Home = () => {
+
+const [plant, setPlant] = useState("");
+// console.log(plant);
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    //api call
+}
+const navigate = useNavigate();
+
+const handleCancel = () => {
+}
+
   return (
     <Container maxWidth="xl"> {/* Ensures full-page width */}
       <Grid
@@ -30,13 +44,12 @@ export const Home = () => {
           <Typography variant="h4" gutterBottom>
             Welcome to Grow Garden 101
           </Typography>
-          <TextField
-            id="search"
-            label="Search Plants..."
-            variant="outlined"
-            fullWidth
-            sx={{ maxWidth: 400, marginBottom: 2 }}
-          />
+           <PlantSearchForm
+            plant={plant}
+            setPlant={setPlant}
+            handleSubmit={handleSubmit}
+            handleCancel={handleCancel}
+           />
           <Typography variant="body1">
             Discover the best plants for your garden and learn how to take care of them.
           </Typography>
