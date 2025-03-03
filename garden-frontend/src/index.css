@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+    padding-top: 80px; /* Adjust as needed */
 }
 
 h1 {
@@ -66,13 +67,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.navbar {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000; /* Ensure it stays on top of other content */
+.nav-link.active {
+  color: darkgreen !important;
+  background-color: darkseagreen;
 }
 
-body {
-  padding-top: 56px; /* Adjust based on the height of your navbar */
+.navbar-brand {
+  font-family: 'monospace', cursive;
+  font-weight: bold;
+  font-size: 2.1em !important;
+}
+@media (max-width: 576px) {
+  .logo {
+    width: 70px; /* Adjust the width for mobile screens */
+  }
+  body {
+    padding-top: 500px; /* Smaller navbar on mobile */
+  }
 }
