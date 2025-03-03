@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a687e49-0595-411d-b5ad-8a920eb3c3dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-backend/database/convertCSV.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-backend/database/plants.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-backend/database/plants.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/images/Designer.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/images/homePagePicture.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/images/logo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/pages/EasyPlants.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/pages/FunFacts.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/garden-frontend/src/pages/PlantSearchForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-backend/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/garden-backend/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-backend/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/garden-backend/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-frontend/Routing.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/Routing.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-frontend/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/components/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/garden-frontend/src/pages/About.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/src/pages/About.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garden-frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/garden-frontend/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +54,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "e1996taylor"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;e1996taylor&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/maryjohnben/growingGarden101.git",
-    "accountId": "c0d1626d-186f-4f9d-bf31-df9a26907865"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/maryjohnben/growingGarden101.git&quot;,
+    &quot;accountId&quot;: &quot;c0d1626d-186f-4f9d-bf31-df9a26907865&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -63,7 +79,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/Users/sharo/PycharmProjects/growingGarden",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
