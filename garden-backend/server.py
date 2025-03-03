@@ -37,30 +37,30 @@ def get_plant(): #search using query
     if output:
         return jsonify(output)
 ##################FIX ME#####################
-    # if plant not found go to trefle api
-    # trefle_response = requests.get(f"{trefle_url}{regex_query}")
-    #
-    # if trefle_response.status_code == 200:
-    #     print(f"Received data: {trefle_response.status_code}")
-    #     trefle_data = trefle_response.json() #if sucessful return data
-    #
-    #     if "data" in trefle_data and len(trefle_data["data"]) > 0:
-    #         trefle_plant = trefle_data["data"]
-    #
-    #         results = []
-    #         for each in trefle_plant: # get only the fields that is needed
-    #             results.append(
-    #                 {
-    #                     "common_name": each.get("common_name", "Unknown"),
-    #                     "scientific_name": each.get("scientific_name", "Unknown"),
-    #                     "watering": each.get("watering", "Unknown"),
-    #                     "soil_ph": each.get("soil_ph", "Unknown"),
-    #                     "sun": each.get("sun", "Unknown")
-    #                 }
-    #         )
-    #
-    #         return jsonify(results)
-    return jsonify({"message": "No matches found"}), 404
+    ## if plant not found go to trefle api
+    trefle_response = requests.get(f"{trefle_url}{regex_query}")
+
+    if trefle_response.status_code == 200:
+        print(f"Received data: {trefle_response.status_code}")
+        trefle_data = trefle_response.json() #if sucessful return data
+
+        # if "data" in trefle_data and len(trefle_data["data"]) > 0:
+        #     trefle_plant = trefle_data["data"]
+        #
+        #     results = []
+        #     for each in trefle_plant: # get only the fields that is needed
+        #         results.append(
+        #             {
+        #                 "common_name": each.get("common_name", "Unknown"),
+        #                 "scientific_name": each.get("scientific_name", "Unknown"),
+        #                 # "watering": each.get("watering", "Unknown"),
+        #                 # "soil_ph": each.get("soil_ph", "Unknown"),
+        #                 # "sun": each.get("sun", "Unknown")
+        #             }
+        #     )
+
+        return jsonify(trefle_data)
+    # return jsonify({"message": "No matches found"}), 404
 
 
 if __name__ == '__main__':
