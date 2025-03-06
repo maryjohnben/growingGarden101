@@ -119,7 +119,7 @@ const HandleCancel = () => {
           />
         </Grid>
       </Grid>
-        {/* ✅ Display API Response */}
+        {/* Display API Response */}
       {plantData.length > 0 && (
         <Box>
           {plantData.map((plant, index) => (
