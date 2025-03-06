@@ -5,3 +5,6 @@ __pycache__/
 Lib/
 Scripts/
 
+../.idea/
+garden-backend/.venv/Lib
+garden-backend/.venv/Scripts
