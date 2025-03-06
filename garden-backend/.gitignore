@@ -1,3 +1,10 @@
 .env
 __pycache__/
 *.pyc
+../.idea/workspace.xml
+Lib/
+Scripts/
+
+../.idea/
+garden-backend/.venv/Lib
+garden-backend/.venv/Scripts
