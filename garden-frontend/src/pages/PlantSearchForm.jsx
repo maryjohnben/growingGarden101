@@ -1,12 +1,13 @@
 import React from "react";
 import {Box, Button} from "@mui/material";
 import TextField from "@mui/material/TextField";
+import PropTypes from "prop-types";
 
 export default function PlantSearchForm({
                                             plant,
                                             setPlant,
-                                            handleCancel,
-                                            handleSubmit
+                                            HandleCancel,
+                                            HandleSubmit
                                         }) {
 
 
@@ -16,7 +17,7 @@ export default function PlantSearchForm({
     }
 
     return(
-          <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%", maxWidth: 400 }}>
+          <Box component="form" onSubmit={HandleSubmit} sx={{ width: "100%", maxWidth: 400 }}>
       <TextField
         id="search"
         label="Search Plants..."
@@ -26,9 +27,17 @@ export default function PlantSearchForm({
         value={plant}
         onChange={handleChange}
       />
-      <Button type="submit" variant="contained" color="primary">
+      <Button sx={{ backgroundColor: "green" }} type="submit" variant="contained" color="primary">
         Search
+      </Button><Button sx={{ marginLeft: 2, backgroundColor: "green"}} type="button" variant="contained" color="primary" onClick={HandleCancel}>
+        Cancel
       </Button>
     </Box>
-  )
+    )
 }
+PlantSearchForm.propTypes = {
+  plant: PropTypes.string.isRequired,
+  setPlant: PropTypes.func.isRequired,
+  HandleSubmit: PropTypes.func.isRequired,
+  HandleCancel: PropTypes.func.isRequired,
+};
