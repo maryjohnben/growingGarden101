@@ -10,3 +10,5 @@ class Config:
     MONGO_URI = os.getenv("MONGO_URI")
     OPENAI_PROJECT = os.getenv("OPENAI_PROJECT")
     GOOGLE_GEMINI_TOKEN = os.getenv("GOOGLE_GEMINI_TOKEN")
+    CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")  # Default to allow all if not set
+
