@@ -7,11 +7,18 @@ import json
 from google import genai
 from google.genai import types
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from waitress import serve  # similar to Express.js in node
 from config import Config
 from pymongo import MongoClient
 
 app = Flask(__name__)  # makes a flask app
+
+# Convert comma-separated CORS origins into a list
+allowed_origins = Config.CORS_ORIGINS.split(",")
+
+CORS(app, resources={r"/*": {"origins": allowed_origins}})  # Apply dynamic CORS
+
 app.config.from_object(Config)
 
 # now connect to mongoDB
@@ -69,19 +76,20 @@ def get_plant():  # search using query
     #             }
     #     )
     # if data no found in MongoDB ask openAI
+
     prompt = f"""
-        Provide detailed plant care information for "{query}" in a valid JSON format.
+        Provide plant care information for "{query}" in a valid JSON format.
         [
           {{
             "Common Name": "Example Plant",
             "Scientific Name": "Example scientific name",
             "Watering": "Watering instructions",
-            "Soil pH": 6.0,
-            "Sun Requirements": "Sunlight instructions"
+            "Soil ph": 6.0,
+            "Sun": "Sunlight instructions"
           }}
         ]
 
-        Ensure the output is valid JSON with no additional text or explanations.
+        Ensure the output is valid JSON and contains only the above mentioned fields with no additional text or explanations.
         """
     ############### OPENAI API no longer has a free tier ##########################
     # ai_response = openai.chat.completions.create(
@@ -107,8 +115,10 @@ def get_plant():  # search using query
         plant_info = json.loads(cleaned_response)
     except json.JSONDecodeError:
         plant_info = {"error": "Failed to parse AI response as JSON"}
-    return jsonify(plant_info)
-    # return jsonify({"message": "No matches found"}), 404
+    if plant_info:
+        return jsonify(plant_info), 200
+
+    return jsonify({"message": "No matches found"}), 404
 
 
 if __name__ == '__main__':
