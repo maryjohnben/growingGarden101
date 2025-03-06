@@ -8,4 +8,4 @@ Scripts/
 ../.idea/
 garden-backend/.venv/Lib
 garden-backend/.venv/Scripts
-__pycache__/
+__pycache__
