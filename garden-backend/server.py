@@ -16,6 +16,7 @@ app = Flask(__name__)  # makes a flask app
 
 # Convert comma-separated CORS origins into a list
 allowed_origins = Config.CORS_ORIGINS.split(",")
+# print("allowed", allowed_origins)
 
 CORS(app, resources={r"/*": {"origins": allowed_origins}})  # Apply dynamic CORS
 
@@ -24,7 +25,7 @@ app.config.from_object(Config)
 # now connect to mongoDB
 client = MongoClient(Config.MONGO_URI)
 db = client["plantdb"]  # client.plantdb also allowed
-collection = db["plants"]
+collection = db["plantsAdditionalData"]
 openai.api_key = Config.OPENAI_PROJECT
 client = genai.Client(api_key=Config.GOOGLE_GEMINI_TOKEN)
 
@@ -53,7 +54,7 @@ def get_plant():  # search using query
 
     if output:
         return jsonify(output)
-    ##################FIX ME#####################
+    ########################NOT USED#################################
     ## if plant not found go to trefle api
     # trefle_response = requests.get(f"{trefle_url}{regex_query}")
     #
@@ -75,7 +76,6 @@ def get_plant():  # search using query
     #                 # "sun": each.get("sun", "Unknown")
     #             }
     #     )
-    # if data no found in MongoDB ask openAI
 
     prompt = f"""
         Provide plant care information for "{query}" in a valid JSON format.
@@ -91,7 +91,9 @@ def get_plant():  # search using query
 
         Ensure the output is valid JSON and contains only the above mentioned fields with no additional text or explanations.
         """
-    ############### OPENAI API no longer has a free tier ##########################
+    # if data no found in MongoDB ask AI
+
+    #################### OPENAI API no longer has a free tier ##########################
     # ai_response = openai.chat.completions.create(
     #     model="gpt-4o-mini",
     #     messages=[
@@ -104,20 +106,21 @@ def get_plant():  # search using query
 
     ###################### GOOGLE GEMINI AI ########################
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash", contents=prompt
-    )
-    print("Direct from Gemini", response.text)
-    # Ensure response is properly parsed as JSON
-    # Remove potential markdown formatting (` ```json ` and ` ``` `)
-    cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
-    try:
-        plant_info = json.loads(cleaned_response)
-    except json.JSONDecodeError:
-        plant_info = {"error": "Failed to parse AI response as JSON"}
-    if plant_info:
-        return jsonify(plant_info), 200
+    # response = client.models.generate_content(
+    #     model="gemini-2.0-flash", contents=prompt
+    # )
+    # print("Direct from Gemini", response.text)
+    # # Ensure response is properly parsed as JSON
+    # # Remove potential markdown formatting (` ```json ` and ` ``` `)
+    # cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
+    # try:
+    #     plant_info = json.loads(cleaned_response)
+    # except json.JSONDecodeError:
+    #     plant_info = {"error": "Failed to parse AI response as JSON"}
+    # if plant_info:
+    #     return jsonify(plant_info), 200
 
+    # if database and AI fails this message will be displayed
     return jsonify({"message": "No matches found"}), 404
 
 
@@ -127,4 +130,5 @@ if __name__ == '__main__':
         serve(app, host='0.0.0.0', port=8080)
     else:
         # development
+        app.run(host='0.0.0.0', port=5000)
         app.run(debug=True)
