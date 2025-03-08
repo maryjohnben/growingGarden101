@@ -11,7 +11,7 @@ export default function FunFacts() {
 
             <h2 style={{ fontFamily: 'Avenir' + '', fontSize: '30' +'px', marginLeft:'30px'}}>
             Did you know?
-            </h2>
+            </h2> 
 
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
             1.  Tomato juice is the official state beverage of Ohio, honoring the part A. W. Livingston of Reynoldsburg, Ohio, played in popularizing the tomato in the late 1800s.
@@ -42,6 +42,15 @@ export default function FunFacts() {
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
             8. The difference between nectarines and peaches is that nectarines don’t have fuzzy skins. You can graft peach branches onto a nectarine tree or nectarine branches onto a peach tree so you have both types of fruits.
             </p>
+			
+			<p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
+            9. Corn is only native to the Americas.
+            </p>
+			
+			<p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
+            10. A Sunflower is not just one flower. The sunflower is a huge flower, but the head or fuzzy brown center actually contains 1,000–2,000 individual flowers. Each of those individual flowers will produce a sunflower seed..
+            </p>
+			
         </div>
     )
 }
