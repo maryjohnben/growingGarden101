@@ -5,8 +5,8 @@ export const About = () => {
     return (
         <>
             <div>
-				<p>&nbsp;</p>
-				<h1 style={{ fontFamily: 'cursive' + '', fontSize: '40' +'px', marginLeft:'30px' }}>
+				
+		<h1 style={{ fontFamily: 'cursive' + '', fontSize: '40' +'px', marginLeft:'30px' }}>
                     About Growing Garden 101
                 </h1>
 				
