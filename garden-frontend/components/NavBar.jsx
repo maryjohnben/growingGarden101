@@ -17,7 +17,7 @@ export default function NavBar() {
           />
             </div>
         <Container className="d-flex flex-column align-items-center">
-          <Navbar.Brand as={NavLink} to="/" style={{color: 'darkgreen'}}>Grow Garden 101</Navbar.Brand>
+          <Navbar.Brand as={NavLink} to="/" style={{color: 'darkgreen'}}>Growing Garden 101</Navbar.Brand>
           <Nav className="justify-content-center gap-5">
             <Nav.Link as={NavLink} to="/" style={{color: "black"}}>Home</Nav.Link>
             <Nav.Link as={NavLink} to="/easyPlants" style={{color: "black"}}>Easy Plants</Nav.Link>
