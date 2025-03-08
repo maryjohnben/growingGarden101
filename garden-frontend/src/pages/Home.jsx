@@ -82,6 +82,7 @@ export const Home = () => {
           justifyContent="center"
           paddingLeft={4} /* Keeps content from touching the left edge */
         >
+            {error && <div style={{ color: 'red' }}>{error}</div>}
           <Typography variant="h4" gutterBottom>
             Welcome to Growing Garden 101
           </Typography>
@@ -121,7 +122,6 @@ export const Home = () => {
           />
         </Grid>
       </Grid>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
     </Container>
 
     );
