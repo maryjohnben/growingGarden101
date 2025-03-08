@@ -61,50 +61,6 @@ export const Home = () => {
         setError(null);
     }
 
-    return (
-        <Container maxWidth={false}> {/* Ensures full-page width */}
-            <Grid
-                container
-                spacing={30}
-                minHeight="100vh"
-                alignItems="center"
-                justifyContent="space-between"
-                padding={4}
-            >
-                {/* Left Section: Search Box & Text */}
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="flex-start"
-                    justifyContent="center"
-                    paddingLeft={4} /* Keeps content from touching the left edge */
-                >
-                    {/*   if there is any error returned it will be displayed */}
-                    {error && <div style={{color: 'red'}}>{error}</div>}
-                    <Typography variant="h4" gutterBottom>
-                        Welcome to Grow Garden 101
-                    </Typography>
-                    <PlantSearchForm
-                        plant={plant}
-                        setPlant={setPlant}
-                        HandleSubmit={HandleSubmit}
-                        HandleCancel={HandleCancel}
-                    />
-                    <Typography variant="body1">
-                        Discover the best plants for your garden and learn how to take care of them.
-                    </Typography>
-                </Grid>
-
-
-const HandleCancel = () => {
-    setPlant("");
-    setPlantData([]);
-    setError(null);
-}
-
   return (
     <Container maxWidth="xl"> {/* Ensures full-page width */}
       <Grid
