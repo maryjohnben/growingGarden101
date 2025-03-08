@@ -82,7 +82,7 @@ const HandleCancel = () => {
           paddingLeft={4} /* Keeps content from touching the left edge */
         >
           <Typography variant="h4" gutterBottom>
-            Welcome to Grow Garden 101
+            Welcome to Growing Garden 101
           </Typography>
            <PlantSearchForm
             plant={plant}
@@ -91,7 +91,8 @@ const HandleCancel = () => {
             HandleCancel={HandleCancel}
            />
           <Typography variant="body1">
-            Discover the best plants for your garden and learn how to take care of them.
+            Discover the best plants for your garden and learn how to take care of them.<p></p>
+			    <font size="1">(*Note that search results may not be completely accurate due to the use of AI responses)</font>
           </Typography>
         </Grid>
 
@@ -110,7 +111,7 @@ const HandleCancel = () => {
             alt="Garden"
             sx={{
               width: "100%",
-              maxWidth: 550,
+              maxWidth: 500,
               height: "auto",
               borderRadius: "12px",
               boxShadow: 5,
