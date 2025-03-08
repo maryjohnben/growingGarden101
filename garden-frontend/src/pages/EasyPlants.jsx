@@ -6,13 +6,14 @@ export const EasyPlants = () =>{
         <>
         <div>
             <h1 style={{ fontFamily: 'cursive' + '', fontSize: '40' +'px', margin:'30px'}}>
-            Easy Plants
+            Beginner Friendly Plants
             </h1>
 
 
             <h2 style={{ fontFamily: 'Avenir' + '', fontSize: '30' +'px', marginLeft:'30px'}}>
             Top 10 easiest plants to grow
             </h2>
+			<b>
 
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
             #1 Bell Peppers
@@ -39,7 +40,7 @@ export const EasyPlants = () =>{
             </p>
 
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
-            #7 Stawberries
+            #7 Strawberries
             </p>
 
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
@@ -53,7 +54,7 @@ export const EasyPlants = () =>{
             <p style={{fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px'}}>
             #10 Squash
             </p>
-
+			</b>
         </div>
         </>
     )

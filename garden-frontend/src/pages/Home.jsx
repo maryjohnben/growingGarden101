@@ -98,32 +98,75 @@ export const Home = () => {
                     </Typography>
                 </Grid>
 
-                {/* Right Section: Image */}
-                <Grid
-                    item
-                    xs={12}
-                    md={6}
-                    display="flex"
-                    justifyContent="flex-end"
-                    paddingRight={4} /* Keeps image from touching the right edge */
-                >
-                    {/* Page image displayed */}
-                    <Box
-                        component="img"
-                        src={homePageLogo}
-                        alt="Garden"
-                        sx={{
-                            width: "100%",
-                            maxWidth: 550,
-                            height: "auto",
-                            borderRadius: "12px",
-                            boxShadow: 5,
-                            objectFit: "cover"
-                        }}
-                    />
-                </Grid>
-            </Grid>
-        </Container>
+
+const HandleCancel = () => {
+    setPlant("");
+    setPlantData([]);
+    setError(null);
+}
+
+  return (
+    <Container maxWidth="xl"> {/* Ensures full-page width */}
+      <Grid
+        container
+        spacing={30}
+        minHeight="100vh"
+        alignItems="center"
+        justifyContent="space-between"
+        padding={4}
+      >
+        {/* Left Section: Search Box & Text */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          display="flex"
+          flexDirection="column"
+          alignItems="flex-start"
+          justifyContent="center"
+          paddingLeft={4} /* Keeps content from touching the left edge */
+        >
+          <Typography variant="h4" gutterBottom>
+            Welcome to Growing Garden 101
+          </Typography>
+           <PlantSearchForm
+            plant={plant}
+            setPlant={setPlant}
+            HandleSubmit={HandleSubmit}
+            HandleCancel={HandleCancel}
+           />
+          <Typography variant="body1">
+            Discover the best plants for your garden and learn how to take care of them.<p></p>
+			    <font size="1">(*Note that search results may not be completely accurate due to the use of AI responses)</font>
+          </Typography>
+        </Grid>
+
+        {/* Right Section: Image */}
+        <Grid
+          item
+          xs={12}
+          md={6}
+          display="flex"
+          justifyContent="flex-end"
+          paddingRight={4} /* Keeps image from touching the right edge */
+        >
+          <Box
+            component="img"
+            src={homePageLogo}
+            alt="Garden"
+            sx={{
+              width: "100%",
+              maxWidth: 500,
+              height: "auto",
+              borderRadius: "12px",
+              boxShadow: 5,
+              objectFit: "cover"
+            }}
+          />
+        </Grid>
+      </Grid>
+        {error && <div style={{ color: 'red' }}>{error}</div>}
+    </Container>
 
     );
 };

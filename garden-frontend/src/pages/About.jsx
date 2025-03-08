@@ -5,10 +5,11 @@ export const About = () => {
     return (
         <>
             <div>
-                <h1 style={{ fontFamily: 'cursive' + '', fontSize: '40' +'px', marginLeft:'30px' }}>
+				
+		<h1 style={{ fontFamily: 'cursive' + '', fontSize: '40' +'px', marginLeft:'30px' }}>
                     About Growing Garden 101
                 </h1>
-
+				
                 <p style={{ fontFamily: 'Avenir' + '', fontSize: '20' + 'px', maxWidth: "800px", marginLeft:'60px', textIndent:'30px'}}>
                     Welcome to Growing Garden 101, your ultimate gardening companion! Whether you're a 
                     seasoned "green thumb" or just starting out with your very first seedling, Growing Garden 101 
