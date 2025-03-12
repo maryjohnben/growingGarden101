@@ -7,6 +7,7 @@ import {EasyPlants} from "./src/pages/EasyPlants.jsx";
 import FunFacts from "./src/pages/FunFacts.jsx";
 import {PlantResults} from "./src/pages/PlantResults.jsx";
 import {LocationAssistanceAI} from "./src/pages/LocationAssistanceAI.jsx";
+
 export const Routing = () => {
 
     return(
