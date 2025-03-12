@@ -7,7 +7,7 @@ export const Footer = () => {
                 flexDirection:"column",
         }}>
             &copy; 2025 All Rights Reserved
-            All AI rights belongs to the respective AI Companies.
+            All AI rights belong to the respective AI Companies.
         </footer>
     )
 }
