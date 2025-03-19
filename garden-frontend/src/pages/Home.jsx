@@ -62,9 +62,16 @@ export const Home = () => {
     }
 
   return (
-    <Container maxWidth="xl"> {/* Ensures full-page width */}
+    <Grid container
+              justify="center"
+              alignItems="center"
+              direction="column"
+              style={{minHeight: "100vh"}}
+              spacing={5}
+              marginTop={7}
+        > {/* Ensures full-page width */}
       <Grid
-        container
+        item
         spacing={30}
         minHeight="100vh"
         alignItems="center"
@@ -122,7 +129,7 @@ export const Home = () => {
           />
         </Grid>
       </Grid>
-    </Container>
+    </Grid>
 
     );
 };
