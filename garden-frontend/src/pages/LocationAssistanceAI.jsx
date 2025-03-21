@@ -88,7 +88,7 @@ export const LocationAssistanceAI = () => {
                                     <strong>Conditions:</strong> {AI_PlantCareInfo["Current Weather"]?.Conditions}<br/>
                                     <strong>Humidity:</strong> {AI_PlantCareInfo["Current Weather"]?.Humidity}<br/>
                                     <strong>Temperature:</strong> {AI_PlantCareInfo["Current Weather"]?.Temperature}<br/>
-                                    <strong>Wind Speed:</strong> {AI_PlantCareInfo["Current Weather"]?.["Wind"]}
+                                    <strong>Wind Speed:</strong> {AI_PlantCareInfo["Current Weather"]?.["Wind Speed"]}
                                 </Typography>
                             </CardContent>
                         </Card>

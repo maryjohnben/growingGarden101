@@ -40,7 +40,7 @@ export const PlantResults = () => {
                     const longitude = position.coords.longitude;
                     // console.log(latitude, longitude)
 
-                    //data is send using .post
+                    //data is send using .post this can pass more data securely than .get
                     const response = await axios.post(`${API_BASE_URL}/assistance`, {
                         selectedPlant: selectedPlant,
                         latitude: latitude,

@@ -62,32 +62,23 @@ export const Home = () => {
     }
 
   return (
-    <Grid container
-              justify="center"
+    <Grid
+        container
+              justifyContent="space-around"
               alignItems="center"
-              direction="row"
               style={{minHeight: "100vh"}}
               spacing={5}
-              marginTop={7}
+              marginTop={10}
         > {/* Ensures full-page width */}
-      <Grid
-        item
-        spacing={30}
-        minHeight="100vh"
-        alignItems="center"
-        justifyContent="space-between"
-        padding={4}
-      >
+
         {/* Left Section: Search Box & Text */}
         <Grid
           item
-          xs={12}
-          md={6}
-          display="flex"
-          flexDirection="column"
-          alignItems="flex-start"
-          justifyContent="center"
-          paddingLeft={4} /* Keeps content from touching the left edge */
+       direction="column"
+                  alignItems="center"
+                  justify="center"
+                  marginLeft={5}
+                  marginRight={5}
         >
             {error && <div style={{ color: 'red' }}>{error}</div>}
           <Typography variant="h4" gutterBottom>
@@ -108,11 +99,11 @@ export const Home = () => {
         {/* Right Section: Image */}
         <Grid
           item
-          xs={12}
-          md={6}
-          display="flex"
-          justifyContent="flex-end"
-          paddingRight={4} /* Keeps image from touching the right edge */
+       direction="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  marginLeft={5}
+                  marginRight={5}
         >
           <Box
             component="img"
@@ -125,11 +116,11 @@ export const Home = () => {
               borderRadius: "12px",
               boxShadow: 5,
               objectFit: "cover"
+
             }}
           />
         </Grid>
       </Grid>
-    </Grid>
 
     );
 };
