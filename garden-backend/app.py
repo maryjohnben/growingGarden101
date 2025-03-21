@@ -146,7 +146,7 @@ def get_weather_and_ai_instructions():  # search using query
         response = requests.get(weather_url)
         if response.status_code == 200:
             weather_info = response.json()
-            # print(weather_info)
+            print("Weather returned:", weather_info)
         else:
             raise Exception(f"Failed to get weather info from {weather_url}")
 
