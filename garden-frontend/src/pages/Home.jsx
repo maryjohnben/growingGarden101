@@ -65,7 +65,7 @@ export const Home = () => {
     <Grid container
               justify="center"
               alignItems="center"
-              direction="column"
+              direction="row"
               style={{minHeight: "100vh"}}
               spacing={5}
               marginTop={7}
