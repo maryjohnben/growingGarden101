@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Box, Button, Card, CardContent, Container, Typography} from "@mui/material";
 import axios from "axios";
+import Grid from "@mui/material/Grid2";
 
 const API_BASE_URL =
   import.meta.env.FLASK_APP_API_BASE_URL || "http://localhost:5000";
@@ -13,6 +14,7 @@ export const PlantResults = () => {
     const plantData = location.state?.plantData || []; //data that is passed from Home.jsx
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleSelectPlant = (plant) => {
         setSelectedPlant(plant);
@@ -25,7 +27,8 @@ export const PlantResults = () => {
             if (!selectedPlant) return; // just to be safe
 
         setError(null);
-
+        setLoading(true);
+        console.log(loading);
         // Get user's location
         // console.log(navigator.geolocation);
   if (!("geolocation" in navigator)) {
@@ -46,6 +49,8 @@ export const PlantResults = () => {
                         latitude: latitude,
                         longitude: longitude
                     });
+
+
                     // Navigate to assistance page with plant and location data
                     // console.log("initial", response.data);
 
@@ -71,19 +76,32 @@ export const PlantResults = () => {
         console.error("handleLocation error:", error);
         setError(error.message);
     }
+    // setLoading(false);
 };
 
     return (
          // Display API Response
-         <Container maxWidth="xl">
-            <Typography variant="h4" gutterBottom>
-                Plant Search Results
-            </Typography>
+          <Grid
+        container
+              justify="center"
+              alignItems="center"
+                direction="column"
+              style={{minHeight: "100vh"}}
+              spacing={5}
+              marginTop={5}
+        marginBottom={5}
+        > {/* Ensures full-page width */}
+              <Grid item>
+                <Typography variant="h4" color="green"
+                            marginBottom={-2}>
+                    Plant Search Results
+                </Typography>
+            </Grid>
         <Box>
       {/*  if more than 1 plant displayed mapped into each result */}
       {plantData.length > 0 ? (
           plantData.map((plant, index) => (
-            <Card key={index} sx={{ marginBottom: 2 }}>
+            <Card  key={index} sx={{ marginBottom: 2 }}>
                 {/* any error thrown gets displayed */}
               {error && <Typography color="error">{error}</Typography>}
               <CardContent>
@@ -111,6 +129,16 @@ export const PlantResults = () => {
       {/*//location based if needed by the user */}
             <Box textAlign="center" marginTop={4}>
                 <Typography variant="h6">Do you want location-based plant care assistance using AI?</Typography>
+                {/*Loading set if there is no loading selection button is kept*/}
+                {loading ? <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleLocation}
+                     disabled={!selectedPlant} // Disabled if no plant is selected ensures user picks at least one plant
+                    sx={{ marginRight: 2, backgroundColor: "green"}}
+                >
+                    Loading...
+                </Button> :
                 <Button
                     variant="contained"
                     color="primary"
@@ -120,11 +148,12 @@ export const PlantResults = () => {
                 >
                     Yes, Please!
                 </Button>
+                }
                 <Button variant="outlined" color="secondary" onClick={() => navigate("/")}>
                     Go Back
                 </Button>
             </Box>
         </Box>
 
-            </Container>
+            </Grid>
       )}
