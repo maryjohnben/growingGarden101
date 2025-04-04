@@ -68,7 +68,7 @@ export const Home = () => {
               alignItems="center"
               style={{minHeight: "100vh"}}
               spacing={5}
-              marginTop={10}
+              marginTop={1}
         > {/* Ensures full-page width */}
 
         {/* Left Section: Search Box & Text */}
