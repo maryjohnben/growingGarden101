@@ -9,7 +9,7 @@ import'../src/index.css';
 
 export default function NavBar() {
   return (
-      <Navbar bg="light" data-bs-theme="dark" fixed="top" expand="lg" className="navbar">
+      <Navbar bg="light" data-bs-theme="dark" expand="lg" className="navbar">
             <div className="d-flex justify-content-center justify-content-lg-start w-100">
             <img src="../src/images/logo.jpeg" alt="Garden 101 Logo"
                     className="logo"
