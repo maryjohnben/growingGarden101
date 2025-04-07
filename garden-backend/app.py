@@ -1,4 +1,4 @@
-import openai
+# import openai
 import requests
 import os
 import base64
@@ -26,7 +26,7 @@ app.config.from_object(Config)
 client = MongoClient(Config.MONGO_URI)
 db = client["plantdb"]  # client.plantdb also allowed
 collection = db["plantsAdditionalData"]
-openai.api_key = Config.OPENAI_PROJECT
+# openai.api_key = Config.OPENAI_PROJECT
 client = genai.Client(api_key=Config.GOOGLE_GEMINI_TOKEN)
 
 trefle_url = app.config['TREFLE_API_PLANT']
