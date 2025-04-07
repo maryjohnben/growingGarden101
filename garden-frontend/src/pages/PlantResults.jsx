@@ -147,6 +147,7 @@ export const PlantResults = () => {
                 >
                     Yes, Please!
                 </Button>
+                }
                 <Button variant="outlined" color="secondary" onClick={() => navigate("/")}>
                     Go Back
                 </Button>
