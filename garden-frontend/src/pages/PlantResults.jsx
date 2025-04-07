@@ -80,10 +80,22 @@ export const PlantResults = () => {
 
     return (
          // Display API Response
-         <Container maxWidth="xl">
-            <Typography variant="h4" gutterBottom>
-                Plant Search Results
-            </Typography>
+          <Grid
+        container
+              justify="center"
+              alignItems="center"
+                direction="column"
+              style={{minHeight: "100vh"}}
+              spacing={5}
+              marginTop={5}
+        marginBottom={5}
+        > {/* Ensures full-page width */}
+              <Grid item>
+                <Typography variant="h4" color="green"
+                            marginBottom={-2}>
+                    Plant Search Results
+                </Typography>
+            </Grid>
         <Box>
       {/*  if more than 1 plant displayed mapped into each result */}
       {plantData.length > 0 ? (
