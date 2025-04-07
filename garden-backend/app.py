@@ -122,20 +122,20 @@ def get_plant():
 
     ###################### GOOGLE GEMINI AI ########################
 
-    # response = client.models.generate_content(
-    #     model="gemini-2.0-flash", contents=prompt
-    # )
-    # # print("Direct from Gemini", response.text)
-    # # Ensure response is properly parsed as JSON
-    # # Remove potential markdown formatting (` ```json ` and ` ``` `)
-    # cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
-    # try:
-    #     plant_info = json.loads(cleaned_response)
-    # except json.JSONDecodeError:
-    #     plant_info = {"error": "Failed to parse AI response as JSON"}
-    # if plant_info:
-    #     print("from gemini")
-    #     return jsonify(plant_info), 200
+    response = client.models.generate_content(
+        model="gemini-2.0-flash", contents=prompt
+    )
+    # print("Direct from Gemini", response.text)
+    # Ensure response is properly parsed as JSON
+    # Remove potential markdown formatting (` ```json ` and ` ``` `)
+    cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
+    try:
+        plant_info = json.loads(cleaned_response)
+    except json.JSONDecodeError:
+        plant_info = {"error": "Failed to parse AI response as JSON"}
+    if plant_info:
+        print("from gemini")
+        return jsonify(plant_info), 200
 
     # if database and AI fails this message will be displayed
     return jsonify({"message": "No matches found"}), 404
