@@ -7,7 +7,7 @@ import PlantSearchForm from "./PlantSearchForm";
 import axios from "axios";
 
 const API_BASE_URL =
-    import.meta.env.FLASK_APP_API_BASE_URL || "http://localhost:5000";
+    import.meta.env.VITE_FLASK_APP_API_BASE_URL || "http://localhost:5000";
 
 export const Home = () => {
 
@@ -68,7 +68,7 @@ export const Home = () => {
               alignItems="center"
               style={{minHeight: "100vh"}}
               spacing={5}
-              marginTop={10}
+              // marginTop={1}
         > {/* Ensures full-page width */}
 
         {/* Left Section: Search Box & Text */}

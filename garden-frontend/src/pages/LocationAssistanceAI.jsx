@@ -43,7 +43,7 @@ export const LocationAssistanceAI = () => {
               direction="column"
               style={{minHeight: "100vh"}}
               spacing={5}
-              marginTop={7}
+              marginTop={5}
         >
             <Grid item>
                 <Typography variant="h4" color="green"

@@ -6,7 +6,7 @@ import axios from "axios";
 import Grid from "@mui/material/Grid2";
 
 const API_BASE_URL =
-  import.meta.env.FLASK_APP_API_BASE_URL || "http://localhost:5000";
+  import.meta.env.VITE_FLASK_APP_API_BASE_URL || "http://localhost:5000";
 
 export const PlantResults = () => {
     const navigate = useNavigate();
