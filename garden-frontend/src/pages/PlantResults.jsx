@@ -154,5 +154,5 @@ export const PlantResults = () => {
             </Box>
         </Box>
 
-            </Container>
+            </Grid>
       )}
