@@ -5,7 +5,7 @@ import base64
 import os
 import json
 from google import genai
-from google.genai import types
+# from google.genai import types
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from waitress import serve  # similar to Express.js in node
@@ -29,7 +29,7 @@ collection = db["plantsAdditionalData"]
 # openai.api_key = Config.OPENAI_PROJECT
 client = genai.Client(api_key=Config.GOOGLE_GEMINI_TOKEN)
 
-trefle_url = app.config['TREFLE_API_PLANT']
+# trefle_url = app.config['TREFLE_API_PLANT']
 openWeatherAPI = app.config['OPENWEATHER_API']
 
 
