@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from "react-router-dom";
+import logo from "../src/images/logo.jpeg"
 import'../src/index.css';
 
 
@@ -11,7 +12,7 @@ export default function NavBar() {
   return (
       <Navbar bg="light" data-bs-theme="dark" expand="lg" className="navbar">
             <div className="d-flex justify-content-center justify-content-lg-start w-100">
-            <img src="../src/images/logo.jpeg" alt="Garden 101 Logo"
+            <img src={logo} alt="Garden 101 Logo"
                     className="logo"
             style={{ width: '100px', height: 'auto'}}
           />
