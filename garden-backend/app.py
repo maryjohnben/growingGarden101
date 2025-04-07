@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from waitress import serve  # similar to Express.js in node
 from config import Config
-from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
 # from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
