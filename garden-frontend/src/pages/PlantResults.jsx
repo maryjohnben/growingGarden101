@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Box, Button, Card, CardContent, Container, Typography} from "@mui/material";
 import axios from "axios";
+import Grid from "@mui/material/Grid2";
 
 const API_BASE_URL =
   import.meta.env.FLASK_APP_API_BASE_URL || "http://localhost:5000";
