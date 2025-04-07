@@ -128,6 +128,16 @@ export const PlantResults = () => {
       {/*//location based if needed by the user */}
             <Box textAlign="center" marginTop={4}>
                 <Typography variant="h6">Do you want location-based plant care assistance using AI?</Typography>
+                {/*Loading set if there is no loading selection button is kept*/}
+                {loading ? <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleLocation}
+                     disabled={!selectedPlant} // Disabled if no plant is selected ensures user picks at least one plant
+                    sx={{ marginRight: 2, backgroundColor: "green"}}
+                >
+                    Loading...
+                </Button> :
                 <Button
                     variant="contained"
                     color="primary"
