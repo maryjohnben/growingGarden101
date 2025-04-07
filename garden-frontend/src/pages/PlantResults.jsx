@@ -13,6 +13,7 @@ export const PlantResults = () => {
     const plantData = location.state?.plantData || []; //data that is passed from Home.jsx
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleSelectPlant = (plant) => {
         setSelectedPlant(plant);
