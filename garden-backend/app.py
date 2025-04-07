@@ -11,6 +11,8 @@ from flask_cors import CORS
 from waitress import serve  # similar to Express.js in node
 from config import Config
 from pymongo import MongoClient
+# from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 app = Flask(__name__)  # makes a flask app
 
@@ -23,9 +25,16 @@ CORS(app, resources={r"/*": {"origins": allowed_origins}})  # Apply dynamic CORS
 app.config.from_object(Config)
 
 # now connect to mongoDB
-client = MongoClient(Config.MONGO_URI)
-db = client["plantdb"]  # client.plantdb also allowed
+client = MongoClient(Config.MONGO_URI, server_api=ServerApi('1'))
+db = client["plantdb"]  # client.plant also allowed
 collection = db["plantsAdditionalData"]
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
+
 # openai.api_key = Config.OPENAI_PROJECT
 client = genai.Client(api_key=Config.GOOGLE_GEMINI_TOKEN)
 
@@ -56,6 +65,7 @@ def get_plant():
     ))
 
     if output:
+        print("from db")
         return jsonify(output)
     ########################NOT USED#################################
     ## if plant not found go to trefle api
@@ -112,19 +122,20 @@ def get_plant():
 
     ###################### GOOGLE GEMINI AI ########################
 
-    response = client.models.generate_content(
-        model="gemini-2.0-flash", contents=prompt
-    )
-    # print("Direct from Gemini", response.text)
-    # Ensure response is properly parsed as JSON
-    # Remove potential markdown formatting (` ```json ` and ` ``` `)
-    cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
-    try:
-        plant_info = json.loads(cleaned_response)
-    except json.JSONDecodeError:
-        plant_info = {"error": "Failed to parse AI response as JSON"}
-    if plant_info:
-        return jsonify(plant_info), 200
+    # response = client.models.generate_content(
+    #     model="gemini-2.0-flash", contents=prompt
+    # )
+    # # print("Direct from Gemini", response.text)
+    # # Ensure response is properly parsed as JSON
+    # # Remove potential markdown formatting (` ```json ` and ` ``` `)
+    # cleaned_response = response.text.strip().replace("```json", "").replace("```", "").strip()
+    # try:
+    #     plant_info = json.loads(cleaned_response)
+    # except json.JSONDecodeError:
+    #     plant_info = {"error": "Failed to parse AI response as JSON"}
+    # if plant_info:
+    #     print("from gemini")
+    #     return jsonify(plant_info), 200
 
     # if database and AI fails this message will be displayed
     return jsonify({"message": "No matches found"}), 404
