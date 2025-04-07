@@ -48,6 +48,8 @@ export const PlantResults = () => {
                         latitude: latitude,
                         longitude: longitude
                     });
+
+
                     // Navigate to assistance page with plant and location data
                     // console.log("initial", response.data);
 
