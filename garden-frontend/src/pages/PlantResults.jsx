@@ -26,7 +26,8 @@ export const PlantResults = () => {
             if (!selectedPlant) return; // just to be safe
 
         setError(null);
-
+        setLoading(true);
+        console.log(loading);
         // Get user's location
         // console.log(navigator.geolocation);
   if (!("geolocation" in navigator)) {
