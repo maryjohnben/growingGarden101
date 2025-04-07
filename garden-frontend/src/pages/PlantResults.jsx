@@ -100,7 +100,7 @@ export const PlantResults = () => {
       {/*  if more than 1 plant displayed mapped into each result */}
       {plantData.length > 0 ? (
           plantData.map((plant, index) => (
-            <Card key={index} sx={{ marginBottom: 2 }}>
+            <Card  key={index} sx={{ marginBottom: 2 }}>
                 {/* any error thrown gets displayed */}
               {error && <Typography color="error">{error}</Typography>}
               <CardContent>
