@@ -25,7 +25,7 @@ CORS(app, resources={r"/*": {"origins": allowed_origins}})  # Apply dynamic CORS
 app.config.from_object(Config)
 
 # now connect to mongoDB
-client = MongoClient(Config.MONGO_URI, server_api=ServerApi('1'))
+client = MongoClient(Config.MONGO_URI, server_api=ServerApi('1'), tls=True, serverSelectionTimeoutMS=50000)
 db = client["plantdb"]  # client.plant also allowed
 collection = db["plantsAdditionalData"]
 # Send a ping to confirm a successful connection
