@@ -178,11 +178,8 @@ def get_weather_and_ai_instructions():  # search using query
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-if __name__ == '__main__':
-    # production
-    if app.config['FLASK_ENV'] == 'production':
-        serve(app, host='0.0.0.0', port=8080)
-    else:
-        # development
-        app.run(host='0.0.0.0', port=5000)
-        app.run(debug=True)
+# no need for production
+# if __name__ == '__main__':
+#         # development
+#         app.run(host='0.0.0.0', port=5000)
+#         app.run(debug=True)
