@@ -1,126 +1,136 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import Grid from '@mui/material/Grid2';
-import {Box, Container, Typography} from "@mui/material";
-import homePageLogo from "../images/homePagePicture.jpeg"
-import PlantSearchForm from "./PlantSearchForm";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Box, Container, Typography, Paper } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import axios from "axios";
 
+import homePageLogo from "../images/homePagePicture.jpeg";
+import PlantSearchForm from "./PlantSearchForm";
+
 const API_BASE_URL =
-    import.meta.env.VITE_FLASK_APP_API_BASE_URL || "http://localhost:5000";
+  import.meta.env.VITE_FLASK_APP_API_BASE_URL || "http://localhost:5000";
 
 export const Home = () => {
+  const [plant, setPlant] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    const [plant, setPlant] = useState("");
-    const [plantData, setPlantData] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false); //not used yet
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  /* ----------------------------- handlers ----------------------------- */
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const query = plant.trim();
+    if (!query) return;
 
-// submit handler of PlantSearchForm.jsx
-    //Does API calling to get plant results
-    const HandleSubmit = async (event) => {
-        event.preventDefault();
-        //api call to get data from database or gemini
-        setLoading(true);
-        const trimmedPlant = plant.trim(); // Remove accidental spaces before making the API call
-        // Do not make API call if the input is empty after trimming prevents unnecessary api calls
-        if (trimmedPlant === "") return;
-        try {
-            const response =
-                //get request sent
-                await axios.get(`${API_BASE_URL}/search`,
-                    {
-                        params: {
-                            query: trimmedPlant
-                        }
-                    });
-            // results from api call saved
-            setPlantData(response.data);
-            console.log(response);
-            // if error then set and results will be displayed in another page
-            setError(null);
-            navigate('/results', {state: {plantData: response.data}});
-        } catch (error) {
-            setError(error.response?.data?.message || error.message);
-            setPlantData([]);
-        } finally {
-            setLoading(false);
-        }
+    setLoading(true);
+    try {
+      const { data } = await axios.get(`${API_BASE_URL}/search`, {
+        params: { query },
+      });
+      navigate("/results", { state: { plantData: data } });
+      setError(null);
+    } catch (err) {
+      setError(err.response?.data?.message ?? err.message);
+    } finally {
+      setLoading(false);
     }
-// console.log(plantData[0]["Common Name"]);
-// if(loading){
-//      return <p>Loading...</p>;
-// }
+  };
 
+  const handleCancel = () => {
+    setPlant("");
+    setError(null);
+  };
 
-    const HandleCancel = () => {
-        setPlant("");
-        setPlantData([]);
-        setError(null);
-    }
-
+  /* ----------------------------- UI ----------------------------- */
   return (
-    <Grid
-        container
-              justifyContent="space-around"
-              alignItems="center"
-              style={{minHeight: "100vh"}}
-              spacing={5}
-              // marginTop={1}
-        > {/* Ensures full-page width */}
-
-        {/* Left Section: Search Box & Text */}
-        <Grid
-          item
-       direction="column"
-                  alignItems="center"
-                  justify="center"
-                  marginLeft={5}
-                  marginRight={5}
-        >
-            {error && <div style={{ color: 'red' }}>{error}</div>}
-          <Typography variant="h4" gutterBottom>
-            Welcome to Growing Garden 101
-          </Typography>
-           <PlantSearchForm
-            plant={plant}
-            setPlant={setPlant}
-            HandleSubmit={HandleSubmit}
-            HandleCancel={HandleCancel}
-           />
-          <Typography variant="body1">
-            Discover the best plants for your garden and learn how to take care of them.<p></p>
-			    <font size="1">(*Note that search results may not be completely accurate due to the use of AI responses)</font>
-          </Typography>
-        </Grid>
-
-        {/* Right Section: Image */}
-        <Grid
-          item
-       direction="column"
-                  alignItems="center"
-                  justifyContent="center"
-                  marginLeft={5}
-                  marginRight={5}
-        >
-          <Box
-            component="img"
-            src={homePageLogo}
-            alt="Garden"
+    <Box
+      sx={{
+        background: "linear-gradient(135deg,#e8f5e8 0%,#f0f8f0 100%)",
+        minHeight: "100vh",
+        py: { xs: 4, md: 8 },
+      }}
+    >
+      <Container maxWidth="lg">
+        <Paper elevation={4} sx={{ p: { xs: 3, md: 6 }, borderRadius: 4 }}>
+          <Grid
+            container
+            spacing={4}
             sx={{
-              width: "100%",
-              maxWidth: 500,
-              height: "auto",
-              borderRadius: "12px",
-              boxShadow: 5,
-              objectFit: "cover"
-
+              flexDirection: { xs: "column", md: "row" },
+              flexWrap: { md: "nowrap" },
+              alignItems: "flex-start",
             }}
-          />
-        </Grid>
-      </Grid>
+          >
+            {/* ── LEFT : text + search ─────────────────────────── */}
+            <Grid xs={12} md={6}>
+              <Box sx={{ maxWidth: 520, mx: { md: 0 } }}>
+                {error && (
+                  <Box
+                    sx={{
+                      mb: 3,
+                      p: 2,
+                      borderRadius: 2,
+                      bgcolor: "error.light",
+                      color: "error.main",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {error}
+                  </Box>
+                )}
 
-    );
+                <Typography
+                  variant="h3"
+                  component="h1"
+                  fontWeight="bold"
+                  color="success.dark"
+                  mb={2}
+                >
+                  🌱 Welcome to Growing Garden 101
+                </Typography>
+
+                <Typography variant="subtitle1" mb={3} color="text.secondary">
+                  Find the perfect plants and learn how to help them thrive.
+                </Typography>
+
+                <PlantSearchForm
+                  plant={plant}
+                  setPlant={setPlant}
+                  HandleSubmit={handleSubmit}
+                  HandleCancel={handleCancel}
+                  loading={loading}
+                />
+
+                <Typography variant="caption" display="block" mt={3} color="text.secondary" fontStyle="italic">
+                  Results are generated with AI—double‑check before planting!
+                </Typography>
+              </Box>
+            </Grid>
+
+            {/* ── RIGHT : hero image ───────────────────────────── */}
+            <Grid xs={12} md={6}>
+              <Box
+                component="img"
+                src={homePageLogo}
+                alt="Garden with various plants"
+                sx={{
+                  width: "90%",
+                  maxWidth: 420,
+                  borderRadius: 3,
+                  boxShadow: 3,
+                  display: "block",
+                  ml: { md: "auto" },
+                  mr: { md: 0 },
+                  mx: { xs: "auto" },
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Paper>
+      </Container>
+    </Box>
+  );
 };
+
+export default Home;

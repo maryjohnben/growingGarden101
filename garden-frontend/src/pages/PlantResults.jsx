@@ -1,9 +1,8 @@
 import React from "react";
 import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
-import {Box, Button, Card, CardContent, Container, Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, Container, Typography, Paper, Grid} from "@mui/material";
 import axios from "axios";
-import Grid from "@mui/material/Grid2";
 
 const API_BASE_URL =
   import.meta.env.VITE_FLASK_APP_API_BASE_URL || "http://localhost:5000";
@@ -80,80 +79,197 @@ export const PlantResults = () => {
 };
 
     return (
-         // Display API Response
-          <Grid
-        container
-              justify="center"
-              alignItems="center"
-                direction="column"
-              style={{minHeight: "100vh"}}
-              spacing={5}
-              marginTop={5}
-        marginBottom={5}
-        > {/* Ensures full-page width */}
-              <Grid item>
-                <Typography variant="h4" color="green"
-                            marginBottom={-2}>
-                    Plant Search Results
-                </Typography>
-            </Grid>
-        <Box>
-      {/*  if more than 1 plant displayed mapped into each result */}
-      {plantData.length > 0 ? (
-          plantData.map((plant, index) => (
-            <Card  key={index} sx={{ marginBottom: 2 }}>
-                {/* any error thrown gets displayed */}
-              {error && <Typography color="error">{error}</Typography>}
-              <CardContent>
-                <Typography variant="h6">{plant["Common Name"]}</Typography>
-                <Typography variant="body1"><strong>Scientific Name:</strong> {plant["Scientific Name"]}</Typography>
-                <Typography variant="body1"><strong>Soil pH:</strong> {plant["Soil ph"]}</Typography>
-                <Typography variant="body1"><strong>Sun Requirements:</strong> {plant["Sun"]}</Typography>
-                <Typography variant="body1"><strong>Soil Type:</strong> {plant["Soil Type"]}</Typography>
-                <Typography variant="body1"><strong>Time to water:</strong> {plant["Time to water"]}</Typography>
-                <Typography variant="body1"><strong>Time to plant:</strong> {plant["Time to plant"]}</Typography>
-                  {/* Select Button used to send one plant data to get ai assistance from */}
-                            <Button
-                                variant="contained"
-                                color={selectedPlant === plant ? "success" : "primary"}
-                                onClick={() => handleSelectPlant(plant)}
-                                sx={{ marginTop: 2 }}
-                            >
-                                {selectedPlant === plant ? "Selected" : "Select This Plant"}
-                            </Button>
-              </CardContent>
-            </Card>
-              ))): (
-        <Typography variant="body1">No plant data available.</Typography> //just to be safe before this usually error will be thrown in home
-      )}
-      {/*//location based if needed by the user */}
-            <Box textAlign="center" marginTop={4}>
-                <Typography variant="h6">Do you want location-based plant care assistance using AI?</Typography>
-                {/*Loading set if there is no loading selection button is kept*/}
-                {loading ? <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleLocation}
-                     disabled={!selectedPlant} // Disabled if no plant is selected ensures user picks at least one plant
-                    sx={{ marginRight: 2, backgroundColor: "green"}}
-                >
-                    Loading...
-                </Button> :
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleLocation}
-                     disabled={!selectedPlant} // Disabled if no plant is selected ensures user picks at least one plant
-                    sx={{ marginRight: 2, backgroundColor: "green"}}
-                >
-                    Yes, Please!
-                </Button>
-                }
-                <Button variant="outlined" color="secondary" onClick={() => navigate("/")}>
-                    Go Back
-                </Button>
-            </Box>
-        </Box>
+        <Box sx={{ 
+            background: 'linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%)',
+            minHeight: '100vh',
+            padding: 3
+        }}>
+            <Container maxWidth="lg">
+                <Paper elevation={3} sx={{ 
+                    padding: 4, 
+                    borderRadius: 4,
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '2px solid #4caf50',
+                    marginTop: 2
+                }}>
+                    <Typography 
+                        variant="h2" 
+                        sx={{ 
+                            textAlign: 'center',
+                            color: '#2e7d32',
+                            fontWeight: 'bold',
+                            marginBottom: 4
+                        }}
+                    >
+                        🌱 Plant Search Results 🌱
+                    </Typography>
 
-            </Grid>
-      )}
+                    {error && (
+                        <Box sx={{ 
+                            color: 'red', 
+                            backgroundColor: '#ffebee', 
+                            padding: 2, 
+                            borderRadius: 2, 
+                            marginBottom: 3,
+                            textAlign: 'center'
+                        }}>
+                            ⚠️ {error}
+                        </Box>
+                    )}
+
+                    <Box>
+                        {plantData.length > 0 ? (
+                            plantData.map((plant, index) => (
+                                <Card key={index} sx={{ 
+                                    marginBottom: 3,
+                                    borderRadius: 3,
+                                    background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
+                                    border: selectedPlant === plant ? '3px solid #4caf50' : '2px solid #ddd',
+                                    transition: 'all 0.3s ease-in-out',
+                                    '&:hover': {
+                                        transform: 'translateY(-4px)',
+                                        boxShadow: '0 8px 24px rgba(76, 175, 80, 0.2)'
+                                    }
+                                }}>
+                                    <CardContent sx={{ padding: 3 }}>
+                                        <Typography 
+                                            variant="h4" 
+                                            sx={{ 
+                                                color: '#2e7d32',
+                                                fontWeight: 'bold',
+                                                marginBottom: 2
+                                            }}
+                                        >
+                                            🌿 {plant["Common Name"]}
+                                        </Typography>
+                                        
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12} sm={6}>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>🔬 Scientific Name:</strong> {plant["Scientific Name"]}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>🌡️ Soil pH:</strong> {plant["Soil ph"]}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>☀️ Sun Requirements:</strong> {plant["Sun"]}
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={12} sm={6}>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>🌱 Soil Type:</strong> {plant["Soil Type"]}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>💧 Time to water:</strong> {plant["Time to water"]}
+                                                </Typography>
+                                                <Typography variant="body1" sx={{ marginBottom: 1 }}>
+                                                    <strong>📅 Time to plant:</strong> {plant["Time to plant"]}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                        
+                                        <Button
+                                            variant="contained"
+                                            color={selectedPlant === plant ? "success" : "primary"}
+                                            onClick={() => handleSelectPlant(plant)}
+                                            sx={{ 
+                                                marginTop: 2,
+                                                borderRadius: 3,
+                                                padding: '12px 24px',
+                                                fontWeight: 'bold',
+                                                textTransform: 'none',
+                                                fontSize: '1.1em',
+                                                boxShadow: selectedPlant === plant ? '0 6px 16px rgba(76, 175, 80, 0.4)' : '0 4px 12px rgba(25, 118, 210, 0.3)',
+                                                '&:hover': {
+                                                    transform: 'translateY(-2px)',
+                                                    boxShadow: selectedPlant === plant ? '0 8px 20px rgba(76, 175, 80, 0.5)' : '0 6px 16px rgba(25, 118, 210, 0.4)'
+                                                },
+                                                transition: 'all 0.3s ease'
+                                            }}
+                                        >
+                                            {selectedPlant === plant ? "✅ Selected" : "🌱 Select This Plant"}
+                                        </Button>
+                                    </CardContent>
+                                </Card>
+                            ))
+                        ) : (
+                            <Box sx={{ textAlign: 'center', padding: 4 }}>
+                                <Typography variant="h5" sx={{ color: '#666', marginBottom: 2 }}>
+                                    🌱 No plant data available.
+                                </Typography>
+                            </Box>
+                        )}
+                        
+                        <Box sx={{ 
+                            textAlign: 'center', 
+                            marginTop: 4,
+                            padding: 3,
+                            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                            borderRadius: 3,
+                            border: '2px solid #4caf50'
+                        }}>
+                            <Typography variant="h6" sx={{ marginBottom: 2, color: '#2e7d32', fontWeight: 'bold' }}>
+                                🌍 Do you want location-based plant care assistance using AI?
+                            </Typography>
+                            
+                            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
+                                {loading ? (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        disabled
+                                        sx={{ 
+                                            borderRadius: 3,
+                                            padding: '12px 24px',
+                                            fontWeight: 'bold',
+                                            textTransform: 'none',
+                                            fontSize: '1.1em'
+                                        }}
+                                    >
+                                        ⏳ Loading...
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={handleLocation}
+                                        disabled={!selectedPlant}
+                                        sx={{ 
+                                            borderRadius: 3,
+                                            padding: '12px 24px',
+                                            fontWeight: 'bold',
+                                            textTransform: 'none',
+                                            fontSize: '1.1em',
+                                            backgroundColor: "#4caf50",
+                                            '&:hover': {
+                                                backgroundColor: "#45a049"
+                                            }
+                                        }}
+                                    >
+                                        🌍 Yes, Please!
+                                    </Button>
+                                )}
+                                
+                                <Button 
+                                    variant="outlined" 
+                                    color="secondary" 
+                                    onClick={() => navigate("/")}
+                                    sx={{ 
+                                        borderRadius: 3,
+                                        padding: '12px 24px',
+                                        fontWeight: 'bold',
+                                        textTransform: 'none',
+                                        fontSize: '1.1em'
+                                    }}
+                                >
+                                    🏠 Go Back
+                                </Button>
+                            </Box>
+                        </Box>
+                    </Box>
+                </Paper>
+            </Container>
+        </Box>
+    );
+};
