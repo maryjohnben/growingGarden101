@@ -190,7 +190,7 @@ def get_weather_and_ai_instructions():  # search using query
         return jsonify({"error": str(e)}), 500
 
 # no need for production
-# if __name__ == '__main__':
-#         # development
-#         app.run(host='0.0.0.0', port=5000)
-#         app.run(debug=True)
+if __name__ == '__main__':
+        # development
+        app.run(host='0.0.0.0', port=5000)
+        # app.run(debug=True)
