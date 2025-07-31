@@ -21,7 +21,7 @@ export default function FunFacts() {
         },
         {
             fact: "Small pockets of air inside cranberries cause them to bounce and float in water.",
-            emoji: "🫐"
+            emoji: "🔴"
         },
         {
             fact: "The first potatoes were cultivated in Peru about 7,000 years ago.",

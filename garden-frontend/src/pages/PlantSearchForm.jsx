@@ -6,7 +6,8 @@ export default function PlantSearchForm({
                                             plant,
                                             setPlant,
                                             HandleCancel,
-                                            HandleSubmit
+                                            HandleSubmit,
+                                            loading = false
                                         }) {
 
 
@@ -22,6 +23,7 @@ export default function PlantSearchForm({
                 label="🔍 Search for your perfect plant..."
                 variant="outlined"
                 fullWidth
+                disabled={loading}
                 sx={{ 
                     marginBottom: 3,
                     '& .MuiOutlinedInput-root': {
@@ -43,28 +45,54 @@ export default function PlantSearchForm({
                 onChange={handleChange}
             />
             <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
-                <Button 
-                    sx={{ 
-                        backgroundColor: "#4caf50",
-                        borderRadius: 3,
-                        padding: '12px 24px',
-                        fontWeight: 'bold',
-                        textTransform: 'none',
-                        fontSize: '1.1em',
-                        boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
-                        '&:hover': {
-                            backgroundColor: "#45a049",
-                            transform: 'translateY(-2px)',
-                            boxShadow: '0 6px 16px rgba(76, 175, 80, 0.4)'
-                        },
-                        transition: 'all 0.3s ease'
-                    }} 
-                    type="submit" 
-                    variant="contained" 
-                    color="primary"
-                >
-                    🌱 Search Plants
-                </Button>
+                {loading ? (
+                    <Button 
+                        sx={{ 
+                            backgroundColor: "#4caf50",
+                            borderRadius: 3,
+                            padding: '12px 24px',
+                            fontWeight: 'bold',
+                            textTransform: 'none',
+                            fontSize: '1.1em',
+                            boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
+                            '&:hover': {
+                                backgroundColor: "#45a049",
+                                transform: 'translateY(-2px)',
+                                boxShadow: '0 6px 16px rgba(76, 175, 80, 0.4)'
+                            },
+                            transition: 'all 0.3s ease'
+                        }} 
+                        type="submit" 
+                        variant="contained" 
+                        color="primary"
+                        disabled
+                    >
+                        ⏳ Loading...
+                    </Button>
+                ) : (
+                    <Button 
+                        sx={{ 
+                            backgroundColor: "#4caf50",
+                            borderRadius: 3,
+                            padding: '12px 24px',
+                            fontWeight: 'bold',
+                            textTransform: 'none',
+                            fontSize: '1.1em',
+                            boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
+                            '&:hover': {
+                                backgroundColor: "#45a049",
+                                transform: 'translateY(-2px)',
+                                boxShadow: '0 6px 16px rgba(76, 175, 80, 0.4)'
+                            },
+                            transition: 'all 0.3s ease'
+                        }} 
+                        type="submit" 
+                        variant="contained" 
+                        color="primary"
+                    >
+                        🌱 Search Plants
+                    </Button>
+                )}
                 <Button 
                     sx={{ 
                         backgroundColor: "#ff9800",
@@ -84,6 +112,7 @@ export default function PlantSearchForm({
                     type="button" 
                     variant="contained" 
                     onClick={HandleCancel}
+                    disabled={loading}
                 >
                     🗑️ Clear
                 </Button>
@@ -96,4 +125,5 @@ PlantSearchForm.propTypes = {
   setPlant: PropTypes.func.isRequired,
   HandleSubmit: PropTypes.func.isRequired,
   HandleCancel: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
 };

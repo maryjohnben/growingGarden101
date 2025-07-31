@@ -1,7 +1,8 @@
 import React from "react";
 import {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
-import {Box, Button, Card, CardContent, Container, Typography, Paper, Grid} from "@mui/material";
+import {Box, Button, Card, CardContent, Container, Typography, Paper} from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import axios from "axios";
 
 const API_BASE_URL =
@@ -63,19 +64,21 @@ export const PlantResults = () => {
                 } catch (innerError) {
                     console.error("Error processing location or POST request:", innerError);
                     setError("An error occurred while processing location data.");
-
+                } finally {
+                    setLoading(false);
                 }
             },
             (error) => {
                 console.error("Geolocation error:", error);
                 setError("Unable to get location. Please enable location services.");
+                setLoading(false);
             }
         );
     } catch (error) {
         console.error("handleLocation error:", error);
         setError(error.message);
+        setLoading(false);
     }
-    // setLoading(false);
 };
 
     return (
@@ -145,7 +148,7 @@ export const PlantResults = () => {
                                         </Typography>
                                         
                                         <Grid container spacing={2}>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid xs={12} sm={6}>
                                                 <Typography variant="body1" sx={{ marginBottom: 1 }}>
                                                     <strong>🔬 Scientific Name:</strong> {plant["Scientific Name"]}
                                                 </Typography>
@@ -156,7 +159,7 @@ export const PlantResults = () => {
                                                     <strong>☀️ Sun Requirements:</strong> {plant["Sun"]}
                                                 </Typography>
                                             </Grid>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid xs={12} sm={6}>
                                                 <Typography variant="body1" sx={{ marginBottom: 1 }}>
                                                     <strong>🌱 Soil Type:</strong> {plant["Soil Type"]}
                                                 </Typography>
@@ -173,6 +176,7 @@ export const PlantResults = () => {
                                             variant="contained"
                                             color={selectedPlant === plant ? "success" : "primary"}
                                             onClick={() => handleSelectPlant(plant)}
+                                            disabled={loading}
                                             sx={{ 
                                                 marginTop: 2,
                                                 borderRadius: 3,
@@ -255,6 +259,7 @@ export const PlantResults = () => {
                                     variant="outlined" 
                                     color="secondary" 
                                     onClick={() => navigate("/")}
+                                    disabled={loading}
                                     sx={{ 
                                         borderRadius: 3,
                                         padding: '12px 24px',
