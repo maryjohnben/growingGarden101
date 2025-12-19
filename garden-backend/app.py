@@ -123,7 +123,7 @@ def get_plant():
     ###################### GOOGLE GEMINI AI ########################
 
     response = client.models.generate_content(
-        model="gemini-2.0-flash", contents=prompt
+        model="gemini-2.5-flash", contents=prompt
     )
     # print("Direct from Gemini", response.text)
     # Ensure response is properly parsed as JSON
@@ -190,7 +190,7 @@ def get_weather_and_ai_instructions():  # search using query
         return jsonify({"error": str(e)}), 500
 
 # no need for production
-if __name__ == '__main__':
-        # development
-        app.run(host='0.0.0.0', port=5000)
-        # app.run(debug=True)
+# if __name__ == '__main__':
+#         # development
+#         app.run(host='0.0.0.0', port=5000)
+#         app.run(debug=True)
