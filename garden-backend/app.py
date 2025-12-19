@@ -4,6 +4,7 @@ import os
 import base64
 import os
 import json
+import traceback
 from google import genai
 # from google.genai import types
 from flask import Flask, jsonify, request
@@ -41,6 +42,17 @@ client = genai.Client(api_key=Config.GOOGLE_GEMINI_TOKEN)
 # trefle_url = app.config['TREFLE_API_PLANT']
 openWeatherAPI = app.config['OPENWEATHER_API']
 
+
+## handle unhandled errors
+@app.errorhandler(Exception)
+def handle_exception(e):
+    print("🔥 UNHANDLED ERROR:", e)
+    traceback.print_exc()
+    return jsonify({
+        "ok": False,
+        "error": str(e),
+        "path": request.path
+    }), 500
 
 @app.route('/')  # home page
 def home():
