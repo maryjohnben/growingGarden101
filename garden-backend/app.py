@@ -180,7 +180,7 @@ def get_weather_and_ai_instructions():  # search using query
         Ensure the output is valid JSON and contains only the fields: Common Name, Scientific Name, Soil Type, Soil pH, Sun, Time to plant, Time to water, Watering, Fertilizing, Current Weather, Weather based recommendations.
                 """
         response_ai = client.models.generate_content(
-            model="gemini-2.0-flash", contents=prompt
+            model="gemini-2.5-flash", contents=prompt
         )
         # Ensure response is properly parsed as JSON
         # Remove potential markdown formatting (` ```json ` and ` ``` `)
